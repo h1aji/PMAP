@@ -505,8 +505,10 @@ static int MechaAdjInit(short int argc, char *argv[])
                 case MECHA_TYPE_F:
                 case MECHA_TYPE_G:
                 case MECHA_TYPE_G2:
-                case MECHA_TYPE_40:
                     MechaCommandAdd(MECHA_CMD_AUTO_ADJ_FIX_GAIN, "0005", id++, 0, 20000, "DVD-SL ADJUSTMENT (FIX GAIN)");
+                    break;
+                case MECHA_TYPE_40:
+                    MechaCommandAdd(MECHA_CMD_AUTO_ADJ_FIX_GAIN, "0105", id++, 0, 20000, "DVD-SL ADJUSTMENT (FIX GAIN)");
                     break;
                 case MECHA_TYPE_36:
                 case MECHA_TYPE_38:

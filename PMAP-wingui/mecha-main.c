@@ -510,8 +510,10 @@ static int MechaAdjInit(short int argc, char *argv[])
                 case MECHA_TYPE_F:
                 case MECHA_TYPE_G:
                 case MECHA_TYPE_G2:
-                case MECHA_TYPE_40:
                     MechaCommandAdd(MECHA_CMD_AUTO_ADJ_FIX_GAIN, "0005", id++, 0, 20000, "DVD-SL ADJUSTMENT (FIX GAIN)");
+                    break;
+                case MECHA_TYPE_40:
+                    MechaCommandAdd(MECHA_CMD_AUTO_ADJ_FIX_GAIN, "0105", id++, 0, 20000, "DVD-SL ADJUSTMENT (FIX GAIN)");
                     break;
                 case MECHA_TYPE_36:
                 case MECHA_TYPE_38:
@@ -925,13 +927,13 @@ static int MechaAdjGetError(short int argc, char *argv[])
                 if (MechaCommandExecuteList(&MechaAdjTxHandler, &MechaAdjRxHandler) == 0)
                 {
                     PlatShowMessage("DVD Error Data:\n"
-                           "PI Correct:\t\t%#04x\tPO Correct:\t\t%#04x\n"
-                           "PI Non-correct:\t%#04x\tPO Non-correct:\t%#04x\n"
-                           "PI Max:\t\t\t%#04x\tPO Max:\t\t\t%#04x\n"
-                           "Jitter:\t\t\t%#04x\n",
-                           DvdError.PICorrect, DvdError.PINCorrect, DvdError.PIMax,
-                           DvdError.POCorrect, DvdError.PONCorrect, DvdError.POMax,
-                           DvdError.jitter);
+                                    "PI Correct:\t\t%#04x\tPO Correct:\t\t%#04x\n"
+                                    "PI Non-correct:\t%#04x\tPO Non-correct:\t%#04x\n"
+                                    "PI Max:\t\t\t%#04x\tPO Max:\t\t\t%#04x\n"
+                                    "Jitter:\t\t\t%#04x\n",
+                                    DvdError.PICorrect, DvdError.PINCorrect, DvdError.PIMax,
+                                    DvdError.POCorrect, DvdError.PONCorrect, DvdError.POMax,
+                                    DvdError.jitter);
                 }
                 else
                     PlatShowMessage("Failed to execute.\n");
@@ -1104,7 +1106,7 @@ static int DisplayHelp(const struct MechaDiagCommand *commands, short int argc, 
     if (argc == 1)
     {
         PlatShowMessage("To get help for a specific command, type HELP <command>\n"
-               "Available commands:\n");
+                        "Available commands:\n");
         for (pCmd = commands, i = 0; pCmd->command != NULL; pCmd++, i++)
             PlatShowMessage("\t%s%c", pCmd->command, (i != 0 && i % 4 == 0) ? '\n' : ' ');
         putchar('\n');
