@@ -697,7 +697,7 @@ static int ElectJudgeCDTELoopGain(const char *result, int len)
     else
     {
         PlatShowEMessage("CD TE LOOP GAIN NG: %d\n", value);
-        return (ConSlim == 1) ? 0 : 1;
+        return ((ConSlim == 1) || (ConType == MECHA_TYPE_40)) ? 0 : 1;
     }
 }
 
