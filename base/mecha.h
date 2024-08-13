@@ -1,4 +1,4 @@
-#define MAX_MECHA_TASKS      128
+#define MAX_MECHA_TASKS      256
 #define MECHA_TASK_ARGS_MAX  24
 
 // Recommended buffer sizes for various functions

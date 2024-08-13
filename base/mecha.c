@@ -161,6 +161,7 @@ int MechaCommandExecuteList(MechaCommandTxHandler_t transmit, MechaCommandRxHand
 
             if (result == -EPIPE)
             {
+                TaskCount = 0;
                 if (!is_valid_data(RxBuffer, size))
                 {
                     PlatShowEMessage("Error: Connection problems, received invalid data for task ID %02d.\n", task->id);
@@ -174,6 +175,7 @@ int MechaCommandExecuteList(MechaCommandTxHandler_t transmit, MechaCommandRxHand
 
         if (receive != NULL)
         {
+            TaskCount = 0;
             if ((result = receive(task, RxBuffer, size)) != 0)
                 break;
         }
