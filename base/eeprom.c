@@ -175,6 +175,7 @@ int EEPROMClear(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -195,6 +196,7 @@ int EEPROMDefaultAll(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -215,6 +217,7 @@ int EEPROMDefaultDiscDetect(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -235,6 +238,7 @@ int EEPROMDefaultServo(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -253,6 +257,7 @@ int EEPROMDefaultTilt(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -276,6 +281,7 @@ int EEPROMDefaultTray(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -299,6 +305,7 @@ int EEPROMDefaultEEGS(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -359,6 +366,7 @@ int EEPROMDefaultRTC(void)
         default:
             PlatShowEMessage("Clear RTC: unknown MD version\n");
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -385,6 +393,7 @@ int EEPROMDefaultDVDVideo(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -411,6 +420,7 @@ int EEPROMDefaultID(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -433,6 +443,7 @@ int EEPROMDefaultModelName(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -456,6 +467,7 @@ int EEPROMDefaultOSD(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;
@@ -487,6 +499,7 @@ int EEPROMDefaultSanyoOP(void)
             break;
         default:
             result = -EINVAL;
+            break;
     }
 
     return result;

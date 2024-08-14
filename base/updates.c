@@ -673,6 +673,7 @@ int MechaUpdateChassisD(int ClearOSD2InitBit, int ReplacedMecha, int lens, int o
             break;
         default:
             ReplacedMecha = 1;
+            break;
     }
 
     forceUpdate = (ReplacedMecha || ConChecksumStat == 0 || lens != ConLens);

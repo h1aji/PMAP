@@ -653,6 +653,7 @@ static int ElectJudgeOPTypeError(const char *result, int len)
             break;
         default:
             OPMismatched = 0;
+            break;
     }
 
     if (OPMismatched)

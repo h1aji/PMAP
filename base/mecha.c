@@ -161,7 +161,6 @@ int MechaCommandExecuteList(MechaCommandTxHandler_t transmit, MechaCommandRxHand
 
             if (result == -EPIPE)
             {
-                TaskCount = 0;
                 if (!is_valid_data(RxBuffer, size))
                 {
                     PlatShowEMessage("Error: Connection problems, received invalid data for task ID %02d.\n", task->id);
@@ -175,7 +174,6 @@ int MechaCommandExecuteList(MechaCommandTxHandler_t transmit, MechaCommandRxHand
 
         if (receive != NULL)
         {
-            TaskCount = 0;
             if ((result = receive(task, RxBuffer, size)) != 0)
                 break;
         }
@@ -250,6 +248,7 @@ static void MechaGetNameOfMD(void)
                     break;
                 default:
                     ConType = MECHA_TYPE_39;
+                    break;
             }
             break;
         case 40:
@@ -258,6 +257,7 @@ static void MechaGetNameOfMD(void)
         default:
             ConType = 0xFF;
             PlatShowEMessage("MD Name: Unknown MD version.\n");
+            break;
     }
 }
 
@@ -302,6 +302,7 @@ static void MechaParseOP(void)
             break;
         default:
             ConOP = 0xFF;
+            break;
     } */
 }
 
@@ -372,6 +373,7 @@ static void MechaParseLens(u16 reg10, u16 reg12, u16 reg13)
                 break;
             default:
                 ConLens = 0xFF;
+                break;
         }
     }
     else

@@ -23,11 +23,11 @@ static void InitMechacon(void)
             do
             {
                 PlatShowMessage("MECHACON initialization for H/I-chassis\n"
-                       "Select type:\n"
-                       "\t1. CEX\n"
-                       "\t2. DEX\n"
-                       "\t3. Quit\n"
-                       "Your choice: ");
+                                "Select type:\n"
+                                "\t1. CEX\n"
+                                "\t2. DEX\n"
+                                "\t3. Quit\n"
+                                "Your choice: ");
                 choice = 0;
                 if (scanf("%d", &choice) > 0)
                     while (getchar() != '\n')
@@ -45,6 +45,7 @@ static void InitMechacon(void)
                     break;
                 case 3:
                     done = 1;
+                    break;
             }
 
             if (!done)
@@ -54,35 +55,35 @@ static void InitMechacon(void)
                     if (!dex)
                     {
                         PlatShowMessage("Select model Name:\n"
-                               "\t1. SCPH-xx000 (Japan)\n"
-                               "\t2. SCPH-xx001 (USA)\n"
-                               "\t3. SCPH-xx002 (Australia)\n"
-                               "\t4. SCPH-xx003 (Great Britian)\n"
-                               "\t5. SCPH-xx004 (Europe)\n"
-                               "\t6. SCPH-xx005 (Korea)\n"
-                               "\t7. SCPH-xx006 (Hong Kong)\n"
-                               "\t8. SCPH-xx007 (Taiwan)\n"
-                               "\t9. SCPH-xx008 (Russia)\n"
-                               "\t10. SCPH-50009 (China)\n"
-                               "\t11. SCPH-xx010 (SCPH-50010: Canada, Slims: Mexico)\n"
-                               "\t12. SCPH-x0011 (SCPH-50011: Mexico, SCPH-70011: USA)\n"
-                               "\t13. SCPH-70012 (Canada)\n"
-                               "\t14. Quit\n"
-                               "Your choice: ");
+                                        "\t1. SCPH-xx000 (Japan)\n"
+                                        "\t2. SCPH-xx001 (USA)\n"
+                                        "\t3. SCPH-xx002 (Australia)\n"
+                                        "\t4. SCPH-xx003 (Great Britian)\n"
+                                        "\t5. SCPH-xx004 (Europe)\n"
+                                        "\t6. SCPH-xx005 (Korea)\n"
+                                        "\t7. SCPH-xx006 (Hong Kong)\n"
+                                        "\t8. SCPH-xx007 (Taiwan)\n"
+                                        "\t9. SCPH-xx008 (Russia)\n"
+                                        "\t10. SCPH-50009 (China)\n"
+                                        "\t11. SCPH-xx010 (SCPH-50010: Canada, Slims: Mexico)\n"
+                                        "\t12. SCPH-x0011 (SCPH-50011: Mexico, SCPH-70011: USA)\n"
+                                        "\t13. SCPH-70012 (Canada)\n"
+                                        "\t14. Quit\n"
+                                        "Your choice: ");
                         NumChoices = 12;
                     }
                     else
                     {
                         PlatShowMessage("Select model Name:\n"
-                               "\t1. DTL-H50000\n"
-                               "\t2. DTL-H50001\n"
-                               "\t3. DTL-H50002\n"
-                               "\t4. DTL-H50005\n"
-                               "\t5. DTL-H50006\n"
-                               "\t6. DTL-H50008\n"
-                               "\t7. DTL-H50009\n"
-                               "\t8. Quit\n"
-                               "Your choice: ");
+                                        "\t1. DTL-H50000\n"
+                                        "\t2. DTL-H50001\n"
+                                        "\t3. DTL-H50002\n"
+                                        "\t4. DTL-H50005\n"
+                                        "\t5. DTL-H50006\n"
+                                        "\t6. DTL-H50008\n"
+                                        "\t7. DTL-H50009\n"
+                                        "\t8. Quit\n"
+                                        "Your choice: ");
                         NumChoices = 8;
                     }
                     choice = 0;
@@ -112,6 +113,7 @@ static void InitMechacon(void)
                             break;
                         case 14:
                             done = 1;
+                            break;
                     }
                 }
                 else
@@ -129,6 +131,7 @@ static void InitMechacon(void)
                             break;
                         case 8:
                             done = 1;
+                            break;
                     }
                 }
             }
@@ -146,8 +149,8 @@ static void WriteiLinkID(void)
 
     EEPROMGetiLinkID(iLinkID);
     PlatShowMessage("Current i.Link ID:\t%02x %02x %02x %02x %02x %02x %02x %02x\n"
-           "Enter new ID:\t\t",
-           iLinkID[0], iLinkID[1], iLinkID[2], iLinkID[3], iLinkID[4], iLinkID[5], iLinkID[6], iLinkID[7]);
+                    "Enter new ID:\t\t",
+                    iLinkID[0], iLinkID[1], iLinkID[2], iLinkID[3], iLinkID[4], iLinkID[5], iLinkID[6], iLinkID[7]);
     if (scanf("%02hx %02hx %02hx %02hx %02hx %02hx %02hx %02hx",
               &NewiLinkIDInput[0], &NewiLinkIDInput[1], &NewiLinkIDInput[2], &NewiLinkIDInput[3], &NewiLinkIDInput[4],
               &NewiLinkIDInput[5], &NewiLinkIDInput[6], &NewiLinkIDInput[7]) == 8)
@@ -174,8 +177,8 @@ static void WriteConsoleID(void)
 
     EEPROMGetConsoleID(ConsoleID);
     PlatShowMessage("Current console ID:\t%02x %02x %02x %02x %02x %02x %02x %02x\n"
-           "Enter new ID:\t\t",
-           ConsoleID[0], ConsoleID[1], ConsoleID[2], ConsoleID[3], ConsoleID[4], ConsoleID[5], ConsoleID[6], ConsoleID[7]);
+                    "Enter new ID:\t\t",
+                    ConsoleID[0], ConsoleID[1], ConsoleID[2], ConsoleID[3], ConsoleID[4], ConsoleID[5], ConsoleID[6], ConsoleID[7]);
     if (scanf("%02hx %02hx %02hx %02hx %02hx %02hx %02hx %02hx",
               &NewConsoleIDInput[0], &NewConsoleIDInput[1], &NewConsoleIDInput[2], &NewConsoleIDInput[3], &NewConsoleIDInput[4],
               &NewConsoleIDInput[5], &NewConsoleIDInput[6], &NewConsoleIDInput[7]) == 8)
@@ -208,9 +211,9 @@ static void WriteModelName(void)
 
     ModelName = EEPROMGetModelName();
     PlatShowMessage("Current model name:\t%s\n"
-           "Maximum length is 16\n"
-           "Enter new name:\t\t",
-           ModelName[0] == 0x00 ? "<No model name>" : ModelName);
+                    "Maximum length is 16\n"
+                    "Enter new name:\t\t",
+                    ModelName[0] == 0x00 ? "<No model name>" : ModelName);
     if (fgets(NewModelName, sizeof(NewModelName), stdin))
     {
         NewModelName[16] = '\0';
@@ -225,9 +228,9 @@ static void DisplayIDInfo(void)
     EEPROMGetiLinkID(iLinkID);
     EEPROMGetConsoleID(ConsoleID);
     PlatShowMessage("i.Link ID:\t%02x %02x %02x %02x %02x %02x %02x %02x\n"
-           "Console ID:\t%02x %02x %02x %02x %02x %02x %02x %02x\n",
-           iLinkID[0], iLinkID[1], iLinkID[2], iLinkID[3], iLinkID[4], iLinkID[5], iLinkID[6], iLinkID[7],
-           ConsoleID[0], ConsoleID[1], ConsoleID[2], ConsoleID[3], ConsoleID[4], ConsoleID[5], ConsoleID[6], ConsoleID[7]);
+                    "Console ID:\t%02x %02x %02x %02x %02x %02x %02x %02x\n",
+                    iLinkID[0], iLinkID[1], iLinkID[2], iLinkID[3], iLinkID[4], iLinkID[5], iLinkID[6], iLinkID[7],
+                    ConsoleID[0], ConsoleID[1], ConsoleID[2], ConsoleID[3], ConsoleID[4], ConsoleID[5], ConsoleID[6], ConsoleID[7]);
 }
 
 static void InitNTSCPALDefaults(void)
@@ -237,10 +240,10 @@ static void InitNTSCPALDefaults(void)
     do
     {
         PlatShowMessage("NTSC/PAL selection:\n"
-               "\t1. NTSC\n"
-               "\t2. PAL\n"
-               "\t3. Quit\n"
-               "Your choice: ");
+                        "\t1. NTSC\n"
+                        "\t2. PAL\n"
+                        "\t3. Quit\n"
+                        "Your choice: ");
         choice = 0;
         if (scanf("%d", &choice) > 0)
             while (getchar() != '\n')
@@ -278,13 +281,13 @@ void MenuID(void)
             DisplayCommonConsoleInfo();
             DisplayIDInfo();
             PlatShowMessage("ID Managenent:\n"
-                   "\t1. Write i.Link ID\n"
-                   "\t2. Write console ID\n"
-                   "\t3. Write model name (AB-chassis and later only)\n"
-                   "\t4. Initialize NTSC/PAL defaults (B-chassis DEX and later only)\n"
-                   "\t5. Initialize MECHACON (H/I-chassis only)\n"
-                   "\t6. Quit\n"
-                   "Your choice: ");
+                            "\t1. Write i.Link ID\n"
+                            "\t2. Write console ID\n"
+                            "\t3. Write model name (AB-chassis and later only)\n"
+                            "\t4. Initialize NTSC/PAL defaults (B-chassis DEX and later only)\n"
+                            "\t5. Initialize MECHACON (H/I-chassis only)\n"
+                            "\t6. Quit\n"
+                            "Your choice: ");
             choice = 0;
             if (scanf("%d", &choice) > 0)
                 while (getchar() != '\n')
@@ -322,6 +325,7 @@ void MenuID(void)
                 break;
             default:
                 done = 1;
+                break;
         }
     } while (!done);
 }

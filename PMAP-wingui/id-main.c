@@ -50,6 +50,7 @@ extern unsigned char ConType, ConCEXDEX;
                     break;
                 case 3:
                     done = 1;
+                    break;
             }
 
             if (!done)
@@ -117,6 +118,7 @@ extern unsigned char ConType, ConCEXDEX;
                             break;
                         case 14:
                             done = 1;
+                            break;
                     }
                 }
                 else
@@ -134,6 +136,7 @@ extern unsigned char ConType, ConCEXDEX;
                             break;
                         case 8:
                             done = 1;
+                            break;
                     }
                 }
             }
