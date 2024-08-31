@@ -187,41 +187,81 @@ void PlatSleep(unsigned short int msec)
 
 void PlatShowEMessage(const char *format, ...)
 {
+    if (format == NULL)
+    {
+        fprintf(stderr, "Error: format string is NULL\n");
+        return; // Exit early if format is NULL
+    }
+
     va_list args;
 
+    // Print to standard output
     va_start(args, format);
     vprintf(format, args);
-    if (DebugOutputFile != NULL)
-        vfprintf(DebugOutputFile, format, args);
     va_end(args);
+
+    // Print to debug output file, if specified
+    if (DebugOutputFile != NULL)
+    {
+        va_start(args, format);
+        vfprintf(DebugOutputFile, format, args);
+        va_end(args);
+    }
 }
 
 void PlatShowMessage(const char *format, ...)
 {
+    if (format == NULL)
+    {
+        fprintf(stderr, "Error: format string is NULL\n");
+        return; // Exit early if format is NULL
+    }
+
     va_list args;
 
+    // Print to standard output
     va_start(args, format);
     vprintf(format, args);
-    if (DebugOutputFile != NULL)
-        vfprintf(DebugOutputFile, format, args);
     va_end(args);
+
+    // Print to debug output file, if specified
+    if (DebugOutputFile != NULL)
+    {
+        va_start(args, format);
+        vfprintf(DebugOutputFile, format, args);
+        va_end(args);
+    }
 }
 
 void PlatShowMessageB(const char *format, ...)
 {
+    if (format == NULL)
+    {
+        fprintf(stderr, "Error: format string is NULL\n");
+        return; // Exit early if format is NULL
+    }
+
     va_list args;
 
+    // Print to standard output
     va_start(args, format);
     vprintf(format, args);
+    vprintf(format, args);
+    va_end(args); // Clean up after using args for vprintf
+
+    // Print to debug output file, if specified
     if (DebugOutputFile != NULL)
+    {
+        va_start(args, format); // Reinitialize args for vfprintf
         vfprintf(DebugOutputFile, format, args);
+        va_end(args); // Clean up after using args for vfprintf
+    }
 
     // Block until the user presses ENTER
     while (getchar() != '\n')
     {
-    };
-
-    va_end(args);
+        // Wait for newline character
+    }
 }
 
 void PlatDebugInit(void)
@@ -255,8 +295,15 @@ void PlatDebugDeinit(void)
 
 void PlatDPrintf(const char *format, ...)
 {
+    if (format == NULL)
+    {
+        fprintf(stderr, "Error: format string is NULL\n");
+        return; // Exit early if format is NULL
+    }
+
     va_list args;
 
+    // Print to standard output
     va_start(args, format);
     if (DebugOutputFile != NULL)
         vfprintf(DebugOutputFile, format, args);
