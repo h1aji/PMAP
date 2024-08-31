@@ -138,9 +138,9 @@ static int UpdateEEPROM(int chassis)
             do
             {
                 PlatShowMessage("Please select the optical block:\n"
-                       "\t1. SONY\n"
-                       "\t2. SANYO\n"
-                       "Your choice: ");
+                                "\t1. SONY\n"
+                                "\t2. SANYO\n"
+                                "Your choice: ");
                 OpticalBlock = 0;
                 if (scanf("%d", &OpticalBlock))
                     while (getchar() != '\n')
@@ -157,9 +157,9 @@ static int UpdateEEPROM(int chassis)
             do
             {
                 PlatShowMessage("Please select the object lens:\n"
-                       "\t1. T487\n"
-                       "\t2. T609K\n"
-                       "Your choice: ");
+                                "\t1. T487\n"
+                                "\t2. T609K\n"
+                                "Your choice: ");
                 ObjectLens = 0;
                 if (scanf("%d", &ObjectLens))
                     while (getchar() != '\n')
@@ -328,7 +328,7 @@ void MenuEEPROM(void)
         "D-chassis (DTL-H30000)",
         "H-chassis (DTL-H500xx)"};
     unsigned char done;
-    short int choice, chassis;
+    short int choice, chassis = -1;
     char filename[256];
 
     done = 0;
@@ -341,31 +341,32 @@ void MenuEEPROM(void)
         }
         if (IsOutdatedBCModel())
             PlatShowMessage("B/C-chassis: EEPROM update required.\n");
-        chassis = SelectChassis();
+        if (chassis < 0)
+            chassis = SelectChassis();
         do
         {
             PlatShowMessage("\nSelected chassis: %s\n"
-                   "EEPROM operations:\n"
-                   "\t1. Display console information\n"
-                   "\t2. Dump EEPROM\n"
-                   "\t3. Restore EEPROM\n"
-                   "\t4. Erase EEPROM\n"
-                   "\t5. Load defaults (All)\n"
-                   "\t6. Load defaults (Disc Detect)\n"
-                   "\t7. Load defaults (Servo)\n"
-                   "\t8. Load defaults (Tilt)\n"
-                   "\t9. Load defaults (Tray)\n"
-                   "\t10. Load defaults (EEGS)\n"
-                   "\t11. Load defaults (OSD)\n"
-                   "\t12. Load defaults (RTC)\n"
-                   "\t13. Load defaults (DVD Player)\n"
-                   "\t14. Load defaults (ID)\n"
-                   "\t15. Load defaults (Model Name)\n"
-                   "\t16. Load defaults (SANYO OP)\n"
-                   "\t17. Update EEPROM\n"
-                   "\t18. Quit\n"
-                   "\nYour choice: ",
-                   chassis < 0 ? "Unknown" : ChassisNames[chassis]);
+                            "EEPROM operations:\n"
+                            "\t1. Display console information\n"
+                            "\t2. Dump EEPROM\n"
+                            "\t3. Restore EEPROM\n"
+                            "\t4. Erase EEPROM\n"
+                            "\t5. Load defaults (All)\n"
+                            "\t6. Load defaults (Disc Detect)\n"
+                            "\t7. Load defaults (Servo)\n"
+                            "\t8. Load defaults (Tilt)\n"
+                            "\t9. Load defaults (Tray)\n"
+                            "\t10. Load defaults (EEGS)\n"
+                            "\t11. Load defaults (OSD)\n"
+                            "\t12. Load defaults (RTC)\n"
+                            "\t13. Load defaults (DVD Player)\n"
+                            "\t14. Load defaults (ID)\n"
+                            "\t15. Load defaults (Model Name)\n"
+                            "\t16. Load defaults (SANYO OP)\n"
+                            "\t17. Update EEPROM\n"
+                            "\t18. Quit\n"
+                            "\nYour choice: ",
+                            chassis < 0 ? "Unknown" : ChassisNames[chassis]);
             choice = 0;
             if (scanf("%hd", &choice) > 0)
                 while (getchar() != '\n')
@@ -493,6 +494,6 @@ void MenuEEPROM(void)
         }
 
         PlatShowMessage("\nIf the EEPROM was updated, please reboot the MECHACON\n"
-               "by leaving this menu before pressing the RESET button.\n");
+                        "by leaving this menu before pressing the RESET button.\n");
     } while (!done);
 }
