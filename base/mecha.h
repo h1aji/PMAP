@@ -213,6 +213,7 @@ enum RX_ERROR
 #define MECHA_CMD_DISC_MODE_DVDSL_12 0xc14
 #define MECHA_CMD_DISC_MODE_DVDDL_12 0xc15
 #define MECHA_CMD_DISC_DETECT        0xc16
+#define MECHA_CMD_DISC_CUR_MODE      0xc17 // will return current working mode: either set by c10-c15 command (will return 010-015), or set by c16 (will return current disc mode)
 #define MECHA_CMD_FOCUS_UPDOWN       0xc22
 #define MECHA_CMD_FOCUS_AUTO_START   0xc23
 #define MECHA_CMD_FOCUS_AUTO_STOP    0xc24

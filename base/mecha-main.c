@@ -1194,8 +1194,9 @@ static int MechaTestDiscControl(short int argc, char *argv[])
         }
         else if (!pstricmp(argv[1], "AUTO"))
         {
+            MechaCommandAdd(MECHA_CMD_SLED_POS_HOME, NULL, id++, 0, 3000, "SLED HOME");
+            MechaCommandAdd(MECHA_CMD_DISC_MODE_CD_12, NULL, id++, MECHA_CMD_TAG_MECHA_SET_DISC_TYPE, 1000, "DISC MODE CD 12cm");
             MechaCommandAdd(MECHA_CMD_DISC_DETECT, NULL, id++, MECHA_CMD_TAG_MECHA_DISC_DETECT, 3000, "DISC DETECT");
-            MechaCommandAdd(MECHA_CMD_DISC_MODE_CD_8, NULL, id++, MECHA_CMD_TAG_MECHA_SET_DISC_TYPE, 1000, "DISC MODE CD 8cm");
             if (MechaCommandExecuteList(&MechaAdjTxHandler, &MechaAdjRxHandler) != 0)
                 PlatShowMessage("Failed to execute.\n");
         }
