@@ -30,6 +30,20 @@ C) Other test points:
 	VC_+1.7V	(JL604)
 	+8.5V		(JL430, JL431)
 	GND		(JL432, JL433)
+D) EEPROM Reset Mode on Dragon Models (50k+):
+	EEP_CS and EEP_CE via resistor R6305
+	If the legs of resistor R6305 are shorted,
+	the EEP_CS line will go high,
+	preventing the EEPROM from being read during the console's power-up.
+	The EEPROM will only become accessible after the short is removed.
+	Correct sequence:
+	- Disconnect the power plug
+	- Short the resistor legs
+	- Reconnect the power plug (red light will turn on)
+	- Press the power button (green light will turn on)
+	- Unshort the resistor legs
+	- Run pmap
+	To verify that the EEPROM wasnt read on boot in Menu 4 (Show Ident Data), the CFC should display 00000000
 
 About Optical Block (OP) types:
 -------------------------------
