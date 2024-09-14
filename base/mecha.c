@@ -13,7 +13,7 @@
 static struct MechaTask tasks[MAX_MECHA_TASKS];
 static unsigned char TaskCount = 0;
 char MechaName[9], RTCData[19];
-static struct MechaIdentRaw MechaIdentRaw;
+struct MechaIdentRaw MechaIdentRaw;
 unsigned char ConMD, ConType, ConTM, ConCEXDEX, ConOP, ConLens, ConRTC, ConRTCStat, ConECR, ConChecksumStat, ConSlim;
 
 int is_valid_data(const char *data, int size)

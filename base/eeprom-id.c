@@ -10,6 +10,7 @@
 #include "eeprom-id.h"
 
 u8 iLinkID[8], ConsoleID[8];
+extern struct MechaIdentRaw MechaIdentRaw;
 extern char ConModelName[17];
 extern unsigned char ConMD;
 
@@ -117,8 +118,11 @@ int MechaInitMechacon(int model, int IsDex)
     region = IsDex ? &DEXregions[model] : &CEXregions[model];
     id     = 1;
     MechaCommandAdd(MECHA_TASK_UI_CMD_WAIT, NULL, MECHA_TASK_ID_UI, 0, 100, "EEPROM WAIT 100ms");
-    /*	if(MechaIdentRaw.cfc == 0x00000000)	//Check that the MECHACON ID is 0. Not sure why it's necessary (may be either a safety check for their UI, or might be to prevent reassignments from taking place).
-    {	*/
+    if(MechaIdentRaw.cfc == 0)	//Check that the MECHACON ID is 0. Because this command works only in EEP_CS high mode, which sets the CFC to 0.
+    {
+        PlatShowMessage("EEP_CS isn't high.\n");
+        return 0;
+    }
     if (IsDex)
     {
         MechaCommandAdd(MECHA_CMD_INIT_MECHACON, "0001", id++, 0, 6000, "WR INIT DEX");
@@ -155,6 +159,7 @@ int EEPROMNTSCPALDefaults(int vmode)
         MechaCommandAdd(MECHA_CMD_SETUP_OSD, "00", id++, 0, 6000, "WR INIT NTSC");
     else
         MechaCommandAdd(MECHA_CMD_SETUP_OSD, "01", id++, 0, 6000, "WR INIT PAL");
+    MechaCommandAdd(MECHA_TASK_UI_CMD_WAIT, NULL, MECHA_TASK_ID_UI, 0, 100, "EEPROM WAIT 100ms");
 
     return MechaCommandExecuteList(NULL, &EEPROMIDRxHandler);
 }

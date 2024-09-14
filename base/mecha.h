@@ -280,7 +280,12 @@ enum RX_ERROR
 #define MECHA_CMD_CD_ERROR           0xce8
 #define MECHA_CMD_JITTER             0xce9
 #define MECHA_CMD_FOCUS_JUMP_NEW     0xcf2
-#define MECHA_CMD_CFA                0xcfa
+#define MECHA_CMD_WRITE_1A6          0xcf4 // cf4dddddddddddddddd      d = data
+#define MECHA_CMD_READ_1A6           0xcf5 // ret sssdddddddddddddddd  s = status, d = data
+#define MECHA_CMD_READ_1EA_1FA       0xcf6 // ret sdddddddddddddddd    s = status, d = data
+#define MECHA_CMD_WRITE_1EA_1FA      0xcf7 // cf7dddddddddddddddd      d = data
+#define MECHA_CMD_WRITECONFIG        0xcfa // cfaAAdddddddddddddddd    A = address, d = data
+#define MECHA_CMD_READCONFIG         0xcfb // cfbAA                    A = address
 #define MECHA_CMD_READ_MODEL_2       0xcfc
 #define MECHA_CMD_READ_MODEL         0xcfd
 #define MECHA_CMD_EEPROM_ERASE       0xcfe

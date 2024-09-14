@@ -1632,34 +1632,34 @@ int MechaUpdateChassisH(int ClearOSD2InitBit, int ReplacedMecha, int lens, int o
     MechaCommandAdd(MECHA_TASK_UI_CMD_WAIT, NULL, MECHA_TASK_ID_UI, 0, 100, "WAIT 100ms");
     if (!pstrincmp(MechaName, "000405", 6))
     { // The data here seems to appear at the end of the EEPROM (+0x320).
-        MechaCommandAdd(MECHA_CMD_CFA, "00b1ea8bc0c8198435", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0103dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "02a6848324ddf69aeb", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0303dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "04617d23a351054e8c", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0503dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "062ea7ea3314ad99d4", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "075da60dccd71b3d78", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "08cb2751b48540f096", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "09b6daef699d964b9c", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0a956d23a4e123571c", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0bce8ed32f1cc6554b", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0ccdfb5aefd39b3ad8", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0db4899cb772970027", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0ebadf03dccd7dd383", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0fe6e874df39d0d517", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "1088ccb01b751b05a5", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "11d621b070d9a5768b", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "1224b6090c6547f105", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "137cd2b18287ff3da3", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "14fced984b964ff83f", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "15327cfa386b13c769", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "169a24b37564c23965", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "172d432c30153d01b2", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "187d3464661f675020", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "19c8b413bdc93098fe", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "1ae2e723073e3a51d2", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "1bff90b77afdff00e3", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "00b1ea8bc0c8198435", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0103dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "02a6848324ddf69aeb", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0303dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "04617d23a351054e8c", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0503dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "062ea7ea3314ad99d4", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "075da60dccd71b3d78", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "08cb2751b48540f096", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "09b6daef699d964b9c", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0a956d23a4e123571c", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0bce8ed32f1cc6554b", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0ccdfb5aefd39b3ad8", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0db4899cb772970027", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0ebadf03dccd7dd383", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0fe6e874df39d0d517", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "1088ccb01b751b05a5", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "11d621b070d9a5768b", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "1224b6090c6547f105", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "137cd2b18287ff3da3", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "14fced984b964ff83f", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "15327cfa386b13c769", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "169a24b37564c23965", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "172d432c30153d01b2", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "187d3464661f675020", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "19c8b413bdc93098fe", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "1ae2e723073e3a51d2", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "1bff90b77afdff00e3", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
     }
     if (MechaAddPostUpdateCmds(ClearOSD2InitBit, id) != 0)
     {
@@ -1724,34 +1724,34 @@ int MechaUpdateChassisDexH(int ClearOSD2InitBit, int ReplacedMecha, int lens, in
     { // Something here checks for 0x19, 0x1A, 0x1B and 0x1C. If it's any of those, then the codes for the CEX H-chassis are used instead.
         // No idea what it actually checks for because the UI doesn't seem to set it (always 0xFFFFFFFF).
         // The data here seems to appear at the very end of the EEPROM (+0x320)
-        MechaCommandAdd(MECHA_CMD_CFA, "0003dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0103dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "02ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "03ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "04ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "05ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "06ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "07ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "08ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "09ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0affffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0bffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0cffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0dffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0effffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "0fffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "10ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "11ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "12ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "13ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "14ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "15ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "16ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "17ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "18ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "19ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "1affffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
-        MechaCommandAdd(MECHA_CMD_CFA, "1bffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0003dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0103dccd7dd383ff90", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "02ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "03ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "04ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "05ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "06ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "07ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "08ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "09ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0affffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0bffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0cffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0dffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0effffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "0fffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "10ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "11ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "12ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "13ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "14ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "15ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "16ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "17ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "18ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "19ffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "1affffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
+        MechaCommandAdd(MECHA_CMD_WRITECONFIG, "1bffffffffffffffff", id++, 0, MECHA_TASK_NORMAL_TO, "PCEA1240");
     }
     if (MechaAddPostUpdateCmds(ClearOSD2InitBit, id) != 0)
     {
