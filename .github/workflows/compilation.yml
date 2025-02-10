@@ -13,8 +13,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install MinGW
-        run: choco install mingw -y
+      - name: Install MinGW x86
+        run: choco install mingw --forcex86 -y
 
       - name: Verify MinGW Installation
         run: g++ --version
@@ -26,7 +26,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: PMAP-wincli
+          name: PMAP-win32
           path: PMAP-wincli/pmap.exe
 
   build-macos:
