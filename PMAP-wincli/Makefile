@@ -4,7 +4,7 @@ ELF = pmap.exe
 CFLAGS ?= -O2
 CPPFLAGS = -I.
 
-OBJS += eeprom-main.o eeprom.o elect.o elect-main.o mecha-main.o mecha.o updates.o platform-windows.o
+OBJS += eeprom-main.o eeprom.o elect.o elect-main.o mecha-main.o mecha.o updates.o platform-win.o
 OBJS += main.o
 
 # Define MinGW compiler
