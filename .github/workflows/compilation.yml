@@ -13,20 +13,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install MinGW x86
-        run: choco install mingw --forcex86 -y
+      - name: Install MSYS2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW32
+          install: > 
+            mingw-w64-i686-gcc
+            mingw-w64-i686-make
 
-      - name: Verify MinGW Installation
+      - name: Build with MinGW (MSYS2)
+        shell: msys2 {0}
         run: |
-              ls C:\ProgramData\chocolatey\bin\
-              g++ --version
-              gcc -v
-              mingw32-gcc -v
-
-      - name: Build with MinGW
-        run: |
-              cd PMAP-wincli
-              mingw32-make -f Makefile CFLAGS="-O2 -m32"
+            cd PMAP-wincli
+            mingw32-make -f Makefile CC=i686-w64-mingw32-gcc
 
       - name: Verify Binary
         run: file pmap.exe
