@@ -13,10 +13,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Visual Studio 2017 (v141)
-        uses: microsoft/setup-msbuild@v1
-        with:
-          vs-version: '2017'
+      - name: Set up Visual Studio 2017 (v141)
+        run: |
+          # Install Visual Studio 2017 (v141 toolset)
+          choco install visualstudio2017community --params "/AddMicrosoft.VisualStudio.Workload.NativeDesktop /AddMicrosoft.VisualStudio.Component.VC.Tools.x86.x64"
+          # Ensure VS is installed and locate MSBuild
+          set MSBUILD_PATH=$(vswhere -products * -requires Microsoft.Component.MSBuild -property installationPath)
+          echo "MSBUILD_PATH=$MSBUILD_PATH"
+          echo "::add-path::$MSBUILD_PATH\\MSBuild\\15.0\\Bin"
 
       - name: Build
         run: msbuild /p:PlatformToolset=v141 /p:Configuration=Release
