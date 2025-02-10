@@ -14,11 +14,25 @@ jobs:
         uses: actions/checkout@v4
 
 
-      - name: Setup msbuild
-        uses: microsoft/setup-msbuild@v2
+      - name: Set up Chocolatey
+        uses: choco/setup@v1
+  
+      - name: Install Visual Studio Build Tools 2017
+        run: |
+          choco install visualstudio2017buildtools --package-parameters "--allWorkloads --includeRecommended --addMicrosoft.VisualStudio.Component.VC.Tools.x86.x64 --addMicrosoft.VisualStudio.Component.Windows10SDK.10.0.18362.0 --addMicrosoft.VisualStudio.Component.CoreEditor"
+  
+      - name: Install MSBuild tools and dependencies
+        run: |
+          choco install visualstudio2017-workload-vc
+          choco install visualstudio2017-workload-desktop
+  
+      - name: Verify installation
+        run: |
+          vswhere -latest -products * -requires Microsoft.VisualStudio.Component.CoreEditor -property installationPath
+          setx PATH "$PATH;C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
 
       - name: Build
-        run: msbuild /p:PlatformToolset=v141_xp /p:Configuration=Release
+        run: msbuild /p:Platform=x86 /p:PlatformToolset=v141 /p:Configuration=Release
 
       - uses: actions/upload-artifact@v4
         with:
