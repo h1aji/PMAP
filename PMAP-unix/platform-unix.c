@@ -35,14 +35,14 @@ int PlatOpenCOMPort(const char *device)
         {
             while ((entry = readdir(dir)))
             {
-#ifdef __APPLE__
-                // macOS uses /dev/cu.*
-                if (strncmp(entry->d_name, "cu.", 3) == 0)
-#else
+#ifdef LINUX
                 // Linux uses /dev/ttyS*, /dev/ttyUSB*, and /dev/ttyACM*
                 if (strncmp(entry->d_name, "ttyS", 4) == 0 ||
                     strncmp(entry->d_name, "ttyUSB", 6) == 0 ||
                     strncmp(entry->d_name, "ttyACM", 6) == 0)
+#else
+                // macOS uses /dev/cu.*
+                if (strncmp(entry->d_name, "cu.", 3) == 0)
 #endif
                 {
                     PlatShowMessage("/dev/%s\n", entry->d_name);
