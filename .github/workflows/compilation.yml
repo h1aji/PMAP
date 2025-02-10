@@ -6,44 +6,26 @@ on:
 
 jobs:
   build-win:
-    name: PMAP windows compilation
+    name: PMAP Windows Compilation
     runs-on: windows-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Chocolatey
-        run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force;
-          iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-  
-      - name: Install Visual Studio Build Tools 2017
-        run: |
-          choco install visualstudio2017buildtools --package-parameters "--allWorkloads --includeRecommended --addMicrosoft.VisualStudio.Component.VC.Tools.x86.x64 --addMicrosoft.VisualStudio.Component.Windows10SDK.10.0.18362.0 --addMicrosoft.VisualStudio.Component.CoreEditor"
-  
-      - name: Install MSBuild tools and dependencies
-        run: |
-          choco install visualstudio2017-workload-vc
-          choco install visualstudio2017-workload-desktop
-  
-      - name: Verify installation
-        run: |
-          vswhere -latest -products * -requires Microsoft.VisualStudio.Component.CoreEditor -property installationPath
-          setx PATH "$PATH;C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
+      - name: Install MinGW
+        run: choco install mingw -y
 
-      - name: Build
-        run: msbuild /p:Platform=x86 /p:PlatformToolset=v141 /p:Configuration=Release
+      - name: Verify MinGW Installation
+        run: g++ --version
+
+      - name: Build with MinGW
+        run: mingw32-make -f Makefile
 
       - uses: actions/upload-artifact@v4
         with:
           name: PMAP-wincli
-          path: Release/PMAP.exe
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: PMAP-wingui
-          path: Release/PMAP-win.exe
+          path: pmap.exe
 
   build-macos:
     name: PMAP macos compilation
