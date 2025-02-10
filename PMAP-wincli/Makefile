@@ -2,7 +2,7 @@ VPATH = ./:../base/
 
 ELF = pmap.exe
 CFLAGS ?= -O2
-CPPFLAGS = -I.
+CPPFLAGS = -I. -I../base/   # Add the include directory
 
 OBJS += eeprom-main.o eeprom.o elect.o elect-main.o mecha-main.o mecha.o updates.o platform-win.o
 OBJS += main.o
