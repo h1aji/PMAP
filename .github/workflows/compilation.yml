@@ -18,9 +18,10 @@ jobs:
 
       - name: Verify MinGW Installation
         run: |
+              ls C:\ProgramData\chocolatey\bin\
               g++ --version
               gcc -v
-              i686-w64-mingw32-gcc -v
+              mingw32-gcc -v
 
       - name: Build with MinGW
         run: |
