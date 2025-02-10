@@ -23,12 +23,11 @@ jobs:
         run: |
               cd PMAP-wincli
               mingw32-make -f Makefile
-              tar -zcvf PMAP-wincli.tar.gz pmap.exe
 
       - uses: actions/upload-artifact@v4
         with:
           name: PMAP-wincli
-          path: PMAP-wincli/PMAP-wincli.tar.gz
+          path: PMAP-wincli/pmap.exe
 
   build-macos:
     name: PMAP macos compilation
