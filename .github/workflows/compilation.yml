@@ -22,7 +22,8 @@ jobs:
       - name: Build with MinGW
         run: |
               cd PMAP-wincli
-              mingw32-make -f Makefile
+              set CC=i686-w64-mingw32-gcc
+              mingw32-make -f Makefile CFLAGS="-O2 -m32"
 
       - uses: actions/upload-artifact@v4
         with:
