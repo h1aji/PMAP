@@ -20,12 +20,15 @@ jobs:
         run: g++ --version
 
       - name: Build with MinGW
-        run: mingw32-make -f Makefile
+        run: |
+              cd PMAP-wincli
+              mingw32-make -f Makefile
+              tar -zcvf PMAP-wincli.tar.gz pmap.exe
 
       - uses: actions/upload-artifact@v4
         with:
           name: PMAP-wincli
-          path: pmap.exe
+          path: PMAP-wincli/PMAP-wincli.tar.gz
 
   build-macos:
     name: PMAP macos compilation
