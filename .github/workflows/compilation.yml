@@ -17,10 +17,13 @@ jobs:
         run: |
           # Install Visual Studio 2017 (v141 toolset)
           choco install visualstudio2017community --params "/AddMicrosoft.VisualStudio.Workload.NativeDesktop /AddMicrosoft.VisualStudio.Component.VC.Tools.x86.x64"
-          # Ensure VS is installed and locate MSBuild
+          
+          # Ensure VS is installed and locate MSBuild using vswhere
           set MSBUILD_PATH=$(vswhere -products * -requires Microsoft.Component.MSBuild -property installationPath)
           echo "MSBUILD_PATH=$MSBUILD_PATH"
-          echo "::add-path::$MSBUILD_PATH\\MSBuild\\15.0\\Bin"
+          
+          # Add MSBuild path to system PATH (use forward slashes and complete path)
+          echo "::add-path::${MSBUILD_PATH}/MSBuild/15.0/Bin"
 
       - name: Build
         run: msbuild /p:PlatformToolset=v141 /p:Configuration=Release
