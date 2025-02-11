@@ -28,7 +28,7 @@ jobs:
             mingw32-make -f Makefile CC=i686-w64-mingw32-gcc
 
       - name: Verify Binary
-        run: file pmap.exe
+        run: file PMAP-wincli/pmap.exe
 
       - uses: actions/upload-artifact@v4
         with:
